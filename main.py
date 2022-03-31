@@ -1,5 +1,30 @@
-customers=list()
-products=list()
+customers=[
+    {"rahulramci":False},
+    {"dj":True}
+]
+
+products=[
+    {"oven":300},
+    {"stove":50},
+    {"tshirt":10},
+    {"watch":50}
+]
+
+def check_product(product_name):
+    pass
+
+
+def add_update_products():
+    pass
+
+def display_customers():
+    pass
+
+def display_customers_with_membership():
+    pass
+
+def display_existing_products():
+    pass
 
 
 def print_bill(product_name,quantity,price,name,total):
@@ -44,11 +69,26 @@ def generate_bill(product_name,quantity,name):
                 # print(total)
     print_bill(product_name,quantity,price,name,total)
 
-def init_transaction():
+# def init_transaction():
+#     name = input("Enter The Name Of The Customer:")
+#     product_name= input("Enter the Product:")
+#     global customers, products
+#     # name is key, value defines the membership which is boolean
+#     customers.append({name:False})
+#     products.append({product_name:300})
+#     quantity=int(input("Enter The Product Quantity:"))
+#     generate_bill(product_name,quantity,name)
+#     return 
+
+def order():
+    global customers, products
     name = input("Enter The Name Of The Customer:")
     product_name= input("Enter the Product:")
-    global customers, products
     # name is key, value defines the membership which is boolean
+    found=False
+    for product in products:
+        if product_name in product.keys:
+            found=True
     customers.append({name:False})
     products.append({product_name:300})
     quantity=int(input("Enter The Product Quantity:"))
@@ -56,7 +96,22 @@ def init_transaction():
     return 
 
 def main():
-    init_transaction()
+    while True:
+        print("Welcome to the RMT retail management system")
+        print("#"*60)
+        print("You can choose from the following option:")
+        print("1:Place an order")
+        print("2:Add/update products and prices")
+        print("3:Display existing customers")
+        print("4:Display existing customers with membership")
+        print("5:Display existing products")
+        print("0:Exit the program")
+        print("#"*60)
+        option=int(input("Choose the option : "))
+        match option:
+            case 1: order()
+        break
+    # init_transaction()
     # print(customers)
     # print(products)
 
